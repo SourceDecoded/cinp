@@ -1,0 +1,107 @@
+Calling a Static Method:
+
+CALL /api/App/TypeA(multiply) HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0
+Accept: application/json
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/json; charset=UTF-8
+CIP-Version: 0.1
+Referer: http://localhost:8000/ui/
+Content-Length: 15
+Cookie: csrftoken=0SRCLXyy2g6T0NAIpurjbw3w9RhBbkHt; sessionid=if0t6zwtqivgnfpf1gi089mzvxb8vc2n
+Connection: keep-alive
+
+{"subject":"3"}
+
+HTTP/1.0 202 ACCEPTED
+Date: Sat, 14 Feb 2015 18:48:19 GMT
+Server: WSGIServer/0.1 Python/2.7.6
+Vary: Cookie
+Cache-Control: no-cache
+CIP-Version: 0.1
+X-Frame-Options: SAMEORIGIN
+Content-Type: application/json
+Method: CALL
+
+{"value": 9}
+
+
+Call Static Method with error:
+CALL /api/App/TypeA(multiply) HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0
+Accept: application/json
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/json; charset=UTF-8
+CIP-Version: 0.1
+Referer: http://localhost:8000/ui/
+Content-Length: 17
+Cookie: csrftoken=0SRCLXyy2g6T0NAIpurjbw3w9RhBbkHt; sessionid=if0t6zwtqivgnfpf1gi089mzvxb8vc2n
+Connection: keep-alive
+
+{"subject":"adf"}
+
+HTTP/1.0 400 BAD REQUEST
+Date: Sat, 14 Feb 2015 18:48:24 GMT
+Server: WSGIServer/0.1 Python/2.7.6
+CIP-Version: 0.1
+Vary: Cookie
+X-Frame-Options: SAMEORIGIN
+Content-Type: application/json
+
+{"fields": {"subject": "\"adf\" is not a valid Integer"}}
+
+Describing a method:
+DESCRIBE /api/App/TypeA(addToCount) HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0
+Accept: application/json
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+CIP-Version: 0.1
+Referer: http://localhost:8000/ui/
+Cookie: csrftoken=0SRCLXyy2g6T0NAIpurjbw3w9RhBbkHt; sessionid=if0t6zwtqivgnfpf1gi089mzvxb8vc2n
+Connection: keep-alive
+
+HTTP/1.0 202 ACCEPTED
+Date: Sat, 14 Feb 2015 18:49:59 GMT
+Server: WSGIServer/0.1 Python/2.7.6
+Content-Type: application/json
+Vary: Cookie
+Cache-Control: max-age=0
+CIP-Version: 0.1
+X-Frame-Options: SAMEORIGIN
+Type: action
+Method: DESCRIBE
+
+{"return-type": {"type": "String", "name": null}, "doc": "Just try to guess what this does", "static": false, "name": "addToCount", "paramater-list": [{"type": "Integer", "name": "value"}]}
+
+calling That same method:
+CALL /api/App/TypeA:one:(addToCount) HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0
+Accept: application/json
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/json; charset=UTF-8
+CIP-Version: 0.1
+Referer: http://localhost:8000/ui/
+Content-Length: 13
+Cookie: csrftoken=0SRCLXyy2g6T0NAIpurjbw3w9RhBbkHt; sessionid=if0t6zwtqivgnfpf1gi089mzvxb8vc2n
+Connection: keep-alive
+
+{"value":"5"}
+HTTP/1.0 202 ACCEPTED
+Date: Sat, 14 Feb 2015 18:50:03 GMT
+Server: WSGIServer/0.1 Python/2.7.6
+Vary: Cookie
+Cache-Control: no-cache
+CIP-Version: 0.1
+X-Frame-Options: SAMEORIGIN
+Content-Type: application/json
+Method: CALL
+
+{"value": null}
