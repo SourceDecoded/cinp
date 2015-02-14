@@ -12,3 +12,37 @@ SOAP is by no means _simple_, consisting of getting and sending requests primarl
 REST brought the us the ability to use HTTP as part of the protocol, making things cacheable, easy for Layer 7 appliances to assist in load balancing, etc.  However it is _state_ transfer, completly leaving out the ability to _call_ a method/procedure.  It also isn't formally fully defined, leaving room form diffrent takes on it's use.  Frequently it is implemented in not truely a State mode.
 
 CIP's goal is to extend beyond REST in the spirit of REST to enable application developers to have some of the more _enterprise_ features of SOAP (like mainting business logic soly on the server), while using HTTP as a Protocal and not as a tunnel between endpoints.
+
+Protcol Overview
+================
+
+Components of CIP
+-----------------
+
+Namespace:
+
+  the HTTP path where models reside, this can be used to group models in applicable groups, and to assist the server in spliting parts of an application accross multiple servers with the help of a L7 Switch.
+
+Model:
+
+  A Collection of records using the same fields and callable methods.
+
+Method:
+
+  A Callable function/method of on a model.
+
+Field:
+
+  Data Column of a Model, or paramater of a Method
+
+Data Flow
+---------
+
+CIP is designed in such a way that a CIP library can be wrtten on both the client and server side to handel the protocoal exposing the endpoints in an applicable method to the langage of the endpoints (simmaler to SOAP).  To help with this a HTTP Header is 'CIP-Version: X.X' This way the client/server libraries will know the CIP protocol level of each other.  There is also a seperate API version in a DESCRIBE Response so the application on the client end knows the API version of that paticalure service.  This api-version is specified at in each namespace enabling a cluster of servers to handle sperate parts of the name space and the client will be aware if diffrent parts of the service are running diffrent API versions.
+
+Data Encoding
+-------------
+
+Curent implementations support only JSON at this time, however the Content-Type and Accept Headers are to be used to specify what encoding the endpoints would like to use.  JSON, XML, YAML are expented to be implemented.
+
+Dates are encoded as yyyy-mm-dd hh:mm:ss in UTC
