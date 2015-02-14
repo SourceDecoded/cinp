@@ -1,0 +1,57 @@
+Create with Errors:
+CREATE /api/App/TypeA HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0
+Accept: application/json
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Auth-Id: root
+Auth-Token: 32fb2aa1824e37e2714a5526998fc1236978b54f
+Content-Type: application/json; charset=UTF-8
+CIP-Version: 0.1
+Referer: http://localhost:8000/ui/
+Content-Length: 59
+Cookie: csrftoken=0SRCLXyy2g6T0NAIpurjbw3w9RhBbkHt; sessionid=if0t6zwtqivgnfpf1gi089mzvxb8vc2n
+Connection: keep-alive
+
+{"count":"42","name":"testing","when":"123","type":"34234"}
+
+HTTP/1.0 400 BAD REQUEST
+Date: Sat, 14 Feb 2015 19:16:05 GMT
+Server: WSGIServer/0.1 Python/2.7.6
+CIP-Version: 0.1
+Vary: Cookie
+X-Frame-Options: SAMEORIGIN
+Content-Type: application/json
+
+{"fields": {"when": "Unable to parse \"123\" of type \"DateTime\", e:time data '123' does not match format '%Y-%m-%d %H:%M:%S'", "type": "Value \"34234\" not a valid choice. Valid Choices are: ['A', 'B']"}}
+
+Sucessfull Create:
+CREATE /api/App/TypeA HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0
+Accept: application/json
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Auth-Id: root
+Auth-Token: 32fb2aa1824e37e2714a5526998fc1236978b54f
+Content-Type: application/json; charset=UTF-8
+CIP-Version: 0.1
+Referer: http://localhost:8000/ui/
+Content-Length: 71
+Cookie: csrftoken=0SRCLXyy2g6T0NAIpurjbw3w9RhBbkHt; sessionid=if0t6zwtqivgnfpf1gi089mzvxb8vc2n
+Connection: keep-alive
+
+{"count":"42","name":"testing","when":"2001-01-02 12:34:56","type":"B"}
+
+HTTP/1.0 202 ACCEPTED
+Date: Sat, 14 Feb 2015 19:16:28 GMT
+Server: WSGIServer/0.1 Python/2.7.6
+Vary: Cookie
+Cache-Control: no-cache
+CIP-Version: 0.1
+X-Frame-Options: SAMEORIGIN
+Content-Type: application/json
+Method: CREATE
+
+{"count": 42, "bignumber": 1764, "updated": "2015-02-14 19:16:28", "name": "testing", "when": "2001-01-02 12:34:56", "type": "B"}
