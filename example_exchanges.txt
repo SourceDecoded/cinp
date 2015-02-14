@@ -1,0 +1,195 @@
+A Client Recursivly Discovering the aviable endpoints on a example server:
+NOTE: Cookie infomation can be ignored.
+
+DESCRIBE /api/ HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0
+Accept: application/json
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+CIP-Version: 0.1
+Referer: http://localhost:8000/ui/
+Cookie: csrftoken=0SRCLXyy2g6T0NAIpurjbw3w9RhBbkHt; sessionid=if0t6zwtqivgnfpf1gi089mzvxb8vc2n
+Connection: keep-alive
+
+HTTP/1.0 202 ACCEPTED
+Date: Sat, 14 Feb 2015 17:42:31 GMT
+Server: WSGIServer/0.1 Python/2.7.6
+Content-Type: application/json
+Vary: Cookie
+Cache-Control: max-age=0
+CIP-Version: 0.1
+X-Frame-Options: SAMEORIGIN
+Type: namespace
+Method: DESCRIBE
+
+{"api-version": "v1", "models": ["/api/Auth"], "name": null, "children": ["/api/Demo", "/api/App"]}
+
+
+
+DESCRIBE /api/Auth HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0
+Accept: application/json
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+CIP-Version: 0.1
+Referer: http://localhost:8000/ui/
+Cookie: csrftoken=0SRCLXyy2g6T0NAIpurjbw3w9RhBbkHt; sessionid=if0t6zwtqivgnfpf1gi089mzvxb8vc2n
+Connection: keep-alive
+
+HTTP/1.0 202 ACCEPTED
+Date: Sat, 14 Feb 2015 17:42:31 GMT
+Server: WSGIServer/0.1 Python/2.7.6
+Content-Type: application/json
+Vary: Cookie
+Cache-Control: max-age=0
+CIP-Version: 0.1
+X-Frame-Options: SAMEORIGIN
+Type: model
+Method: DESCRIBE
+
+{"doc": "", "actions": ["/api/Auth(login)", "/api/Auth(logout)"], "list-filters": {}, "fields": []}
+
+DESCRIBE /api/Demo HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0
+Accept: application/json
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+CIP-Version: 0.1
+Referer: http://localhost:8000/ui/
+Cookie: csrftoken=0SRCLXyy2g6T0NAIpurjbw3w9RhBbkHt; sessionid=if0t6zwtqivgnfpf1gi089mzvxb8vc2n
+Connection: keep-alive
+
+HTTP/1.0 202 ACCEPTED
+Date: Sat, 14 Feb 2015 17:42:31 GMT
+Server: WSGIServer/0.1 Python/2.7.6
+Content-Type: application/json
+Vary: Cookie
+Cache-Control: max-age=0
+CIP-Version: 0.1
+X-Frame-Options: SAMEORIGIN
+Type: namespace
+Method: DESCRIBE
+
+{"api-version": "v1", "models": ["/api/Demo/People"], "name": "Demo", "children": []}
+
+
+DESCRIBE /api/App HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0
+Accept: application/json
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+CIP-Version: 0.1
+Referer: http://localhost:8000/ui/
+Cookie: csrftoken=0SRCLXyy2g6T0NAIpurjbw3w9RhBbkHt; sessionid=if0t6zwtqivgnfpf1gi089mzvxb8vc2n
+Connection: keep-alive
+
+HTTP/1.0 202 ACCEPTED
+Date: Sat, 14 Feb 2015 17:42:31 GMT
+Server: WSGIServer/0.1 Python/2.7.6
+Content-Type: application/json
+Vary: Cookie
+Cache-Control: max-age=0
+CIP-Version: 0.1
+X-Frame-Options: SAMEORIGIN
+Type: namespace
+Method: DESCRIBE
+
+{"api-version": "v1", "models": ["/api/App/TypeA", "/api/App/TypeC", "/api/App/TypeB"], "name": "App", "children": []}
+
+DESCRIBE /api/Demo/People HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0
+Accept: application/json
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+CIP-Version: 0.1
+Referer: http://localhost:8000/ui/
+Cookie: csrftoken=0SRCLXyy2g6T0NAIpurjbw3w9RhBbkHt; sessionid=if0t6zwtqivgnfpf1gi089mzvxb8vc2n
+Connection: keep-alive
+
+HTTP/1.0 401 UNAUTHORIZED
+Date: Sat, 14 Feb 2015 17:42:31 GMT
+Server: WSGIServer/0.1 Python/2.7.6
+CIP-Version: 0.1
+Vary: Cookie
+X-Frame-Options: SAMEORIGIN
+Content-Type: application/json
+
+{"msg": "Not Authorized"}
+
+DESCRIBE /api/App/TypeA HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0
+Accept: application/json
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+CIP-Version: 0.1
+Referer: http://localhost:8000/ui/
+Cookie: csrftoken=0SRCLXyy2g6T0NAIpurjbw3w9RhBbkHt; sessionid=if0t6zwtqivgnfpf1gi089mzvxb8vc2n
+Connection: keep-alive
+
+HTTP/1.0 202 ACCEPTED
+Date: Sat, 14 Feb 2015 17:42:32 GMT
+Server: WSGIServer/0.1 Python/2.7.6
+Content-Type: application/json
+Vary: Cookie
+Cache-Control: max-age=0
+CIP-Version: 0.1
+X-Frame-Options: SAMEORIGIN
+Type: model
+Method: DESCRIBE
+
+{"doc": "This is Model TypeA, it is nice and simple.\nIt's for testing the API.", "actions": ["/api/App/TypeA(countDown)", "/api/App/TypeA(countUp)", "/api/App/TypeA(multiply)", "/api/App/TypeA(addToCount)"], "list-filters": {"typeahead": {"value": "String"}, "when_range": {"to": "DateTime", "from": "DateTime"}, "name": {"value": "String"}}, "fields": [{"required": true, "type": "Integer", "name": "count", "mode": "RW"}, {"required": false, "type": "String", "name": "bignumber", "mode": "R"}, {"required": true, "type": "DateTime", "name": "updated", "mode": "R"}, {"length": 20, "required": true, "type": "String", "name": "name", "mode": "RC"}, {"required": true, "type": "DateTime", "name": "when", "mode": "RW"}, {"name": "type", "required": true, "choices": ["A", "B"], "length": 10, "mode": "RW", "type": "String"}]}
+
+DESCRIBE /api/App/TypeC HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0
+Accept: application/json
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+CIP-Version: 0.1
+Referer: http://localhost:8000/ui/
+Cookie: csrftoken=0SRCLXyy2g6T0NAIpurjbw3w9RhBbkHt; sessionid=if0t6zwtqivgnfpf1gi089mzvxb8vc2n
+Connection: keep-alive
+
+HTTP/1.0 202 ACCEPTED
+Date: Sat, 14 Feb 2015 17:42:32 GMT
+Server: WSGIServer/0.1 Python/2.7.6
+Content-Type: application/json
+Vary: Cookie
+Cache-Control: max-age=0
+CIP-Version: 0.1
+X-Frame-Options: SAMEORIGIN
+Type: model
+Method: DESCRIBE
+
+{"doc": "TypeC(id, file, created, updated)", "actions": [], "list-filters": {}, "fields": [{"required": true, "type": "DateTime", "name": "updated", "mode": "R"}, {"schemes": ["inline"], "required": true, "type": "File", "name": "file", "mode": "RW"}, {"required": true, "type": "DateTime", "name": "created", "mode": "R"}]}
+
+DESCRIBE /api/App/TypeB HTTP/1.1
+Host: localhost:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0
+Accept: application/json
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+CIP-Version: 0.1
+Referer: http://localhost:8000/ui/
+Cookie: csrftoken=0SRCLXyy2g6T0NAIpurjbw3w9RhBbkHt; sessionid=if0t6zwtqivgnfpf1gi089mzvxb8vc2n
+Connection: keep-alive
+
+HTTP/1.0 202 ACCEPTED
+Date: Sat, 14 Feb 2015 17:42:32 GMT
+Server: WSGIServer/0.1 Python/2.7.6
+Content-Type: application/json
+Vary: Cookie
+Cache-Control: max-age=0
+CIP-Version: 0.1
+X-Frame-Options: SAMEORIGIN
+Type: model
+Method: DESCRIBE
+
+{"doc": "TypeB(id, name, typea_id, created, updated)", "actions": [], "list-filters": {}, "fields": [{"required": true, "type": "DateTime", "name": "updated", "mode": "R"}, {"required": true, "type": "Model", "name": "typea", "uri": "/api/App/TypeA", "mode": "RW"}, {"length": 20, "required": true, "type": "String", "name": "name", "mode": "RW"}, {"required": true, "type": "DateTime", "name": "created", "mode": "R"}]}
+
