@@ -1,0 +1,2 @@
+# cip
+Concise Interaction Protocol
