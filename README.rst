@@ -43,6 +43,8 @@ CInP is designed in such a way that a CInP library can be wrtten on both the cli
 Data Encoding
 -------------
 
+valid charaters for namespace, actions and object ids are: [a-zA-Z0-9\-_.!~*'], other charaters can be % hh encoded per usual URI convention. (This should match the javascript function encodeURI, with the exceptoin of '(' and ')' )
+
 Curent implementations support only JSON at this time, however the Content-Type and Accept Headers are to be used to specify what encoding the endpoints would like to use.  JSON, XML, YAML are expented to be implemented.
 
 Dates are encoded as yyyy-mm-dd hh:mm:ss in UTC
