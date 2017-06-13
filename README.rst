@@ -1,3 +1,7 @@
+Note:
+  Development of this protocol has moved to http://github.com/cinp
+  
+
 CInP
 ===
 Concise Interaction Protocol
